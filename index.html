@@ -1,271 +1,295 @@
-<style>
-  * {
-    box-sizing: border-box;
-  }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Casa de Oración y Restauración · Programación de voces</title>
 
-  .cor-query {
-    margin: 25px 0;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  .cor-query-label {
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
+    /* Espacio alrededor de la página (antes lo daba Google Sites) */
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
 
-  #corNameSelect {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    background: #fff;
-  }
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f3f6fa;
+    }
 
-  #corResults {
-    margin-top: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #dbe3ec;
-    margin-bottom: 30px;
-  }
+    .cor-query {
+      margin: 25px 0;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
 
-  .cor-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #172033;
-  }
+    .cor-query-label {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-  /* ENCABEZADO */
+    #corNameSelect {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      background: #fff;
+    }
 
-  .cor-header {
-    background: linear-gradient(135deg, #0b1f3a, #123f6b);
-    color: white;
-    padding: 30px 20px;
-    border-radius: 18px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+    #corResults {
+      margin-top: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #dbe3ec;
+      margin-bottom: 30px;
+    }
 
-  .cor-header h1 {
-    margin: 0 0 8px;
-    font-size: 28px;
-  }
+    .cor-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172033;
+    }
 
-  .cor-header p {
-    margin: 0;
-    font-size: 15px;
-    opacity: 0.9;
-  }
-
-  /* PRÓXIMO SERVICIO */
-
-  
-  .cor-next {
-    background: #f4f8fc;
-    border-left: 5px solid #1769aa;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-  }
-
-  .cor-next-label {
-    color: #1769aa;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-  }
-
-  .cor-next h2 {
-    margin: 0 0 6px;
-    font-size: 23px;
-  }
-
-  .cor-next p {
-    margin: 0 0 14px;
-    color: #667085;
-  }
-
-  .cor-voices {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .cor-voice {
-    background: white;
-    border: 1px solid #dce4ee;
-    border-radius: 30px;
-    padding: 8px 13px;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  /* TÍTULOS */
-
-  .cor-section-title {
-    font-size: 24px;
-    margin: 30px 0 15px;
-    color: #0b1f3a;
-  }
-
-  /* MES */
-
-  .cor-month {
-    margin-bottom: 30px;
-  }
-
-  .cor-month-title {
-    background: #0b1f3a;
-    color: white;
-    padding: 14px 18px;
-    border-radius: 12px 12px 0 0;
-    font-size: 19px;
-    font-weight: bold;
-  }
-
-  /* TARJETAS */
-
-  .cor-services {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .cor-service-card {
-    background: white;
-    border: 1px solid #e1e7ef;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  }
-
-  #corResults .cor-service-card {
-    background: #f5f9ff;
-    border: 1px solid #d8e6f7;
-    border-left: 4px solid #2563eb;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
-  }
-
-  #corResults .cor-service-card:last-child {
-    margin-bottom: 30px;
-  }
-
-  .cor-service-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .cor-service-theme {
-    font-size: 14px;
-    font-weight: 600;
-    color: #4b5563;
-    margin: 4px 0 10px;
-  }
-
-  .cor-date {
-    font-weight: bold;
-    color: #0b1f3a;
-  }
-
-  .cor-day {
-    color: #667085;
-    font-size: 14px;
-  }
-
-  .cor-names {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-
-  .cor-name {
-    display: inline-block;
-    background: #eef4fa;
-    color: #243b53;
-    padding: 7px 11px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  /* PIE */
-
-  .cor-footer {
-    margin-top: 30px;
-    padding: 20px;
-    text-align: center;
-    color: #697586;
-    font-size: 13px;
-    border-top: 1px solid #e1e7ef;
-  }
-
-  /* CELULARES */
-
-  @media (max-width: 600px) {
+    /* ENCABEZADO */
 
     .cor-header {
-      padding: 24px 16px;
-      border-radius: 14px;
+      background: linear-gradient(135deg, #0b1f3a, #123f6b);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 18px;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     .cor-header h1 {
-      font-size: 23px;
+      margin: 0 0 8px;
+      font-size: 28px;
     }
 
     .cor-header p {
-      font-size: 14px;
+      margin: 0;
+      font-size: 15px;
+      opacity: 0.9;
     }
 
+    /* PRÓXIMO SERVICIO */
+
     .cor-next {
-      padding: 17px;
+      background: #f4f8fc;
+      border-left: 5px solid #1769aa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .cor-next-label {
+      color: #1769aa;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
     }
 
     .cor-next h2 {
-      font-size: 20px;
+      margin: 0 0 6px;
+      font-size: 23px;
     }
 
+    .cor-next p {
+      margin: 0 0 14px;
+      color: #667085;
+    }
+
+    .cor-voices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cor-voice {
+      background: white;
+      border: 1px solid #dce4ee;
+      border-radius: 30px;
+      padding: 8px 13px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* TÍTULOS */
+
     .cor-section-title {
-      font-size: 21px;
+      font-size: 24px;
+      margin: 30px 0 15px;
+      color: #0b1f3a;
+    }
+
+    /* MES */
+
+    .cor-month {
+      margin-bottom: 30px;
     }
 
     .cor-month-title {
-      font-size: 18px;
-      padding: 13px 15px;
+      background: #0b1f3a;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 12px 12px 0 0;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    /* TARJETAS */
+
+    .cor-services {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .cor-service-card {
-      padding: 14px;
+      background: white;
+      border: 1px solid #e1e7ef;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    #corResults .cor-service-card {
+      background: #f5f9ff;
+      border: 1px solid #d8e6f7;
+      border-left: 4px solid #2563eb;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+    }
+
+    #corResults .cor-service-card:last-child {
+      margin-bottom: 30px;
     }
 
     .cor-service-info {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cor-service-theme {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+      margin: 4px 0 10px;
     }
 
     .cor-date {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 3px;
+      font-weight: bold;
+      color: #0b1f3a;
     }
 
     .cor-day {
-      font-size: 13px;
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .cor-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
     }
 
     .cor-name {
+      display: inline-block;
+      background: #eef4fa;
+      color: #243b53;
+      padding: 7px 11px;
+      border-radius: 20px;
       font-size: 13px;
-      padding: 7px 10px;
+      font-weight: 600;
     }
-  }
-</style>
 
+    /* PIE */
+
+    .cor-footer {
+      margin-top: 30px;
+      padding: 20px;
+      text-align: center;
+      color: #697586;
+      font-size: 13px;
+      border-top: 1px solid #e1e7ef;
+    }
+
+    /* CELULARES */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 10px;
+      }
+
+      .cor-header {
+        padding: 24px 16px;
+        border-radius: 14px;
+      }
+
+      .cor-header h1 {
+        font-size: 23px;
+      }
+
+      .cor-header p {
+        font-size: 14px;
+      }
+
+      .cor-next {
+        padding: 17px;
+      }
+
+      .cor-next h2 {
+        font-size: 20px;
+      }
+
+      .cor-section-title {
+        font-size: 21px;
+      }
+
+      .cor-month-title {
+        font-size: 18px;
+        padding: 13px 15px;
+      }
+
+      .cor-service-card {
+        padding: 14px;
+      }
+
+      .cor-service-info {
+        display: block;
+      }
+
+      .cor-date {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 3px;
+      }
+
+      .cor-day {
+        font-size: 13px;
+      }
+
+      .cor-name {
+        font-size: 13px;
+        padding: 7px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
 
 <div class="cor-container">
 
@@ -277,16 +301,20 @@
   </div>
 
 
+  <!-- CONSULTA -->
+
+  <div class="cor-query">
+    <div class="cor-query-label">Consulta tu asignación</div>
+
+    <select id="corNameSelect">
+      <option value="">Selecciona tu nombre</option>
+    </select>
+  </div>
+
+  <div id="corResults"></div>
+
+
   <!-- PRÓXIMO SERVICIO -->
-<div class="cor-query">
-  <div class="cor-query-label">Consulta tu asignación</div>
-
-  <select id="corNameSelect">
-    <option value="">Selecciona tu nombre</option>
-  </select>
-</div>
-
-<div id="corResults"></div>
 
   <div class="cor-next">
 
@@ -304,7 +332,7 @@
 
   </div>
 
-<div id="corSchedule"></div>
+  <div id="corSchedule"></div>
 
   <!-- PIE -->
 
@@ -383,6 +411,11 @@ window.corHandleSheetData = function(data) {
 
 };
 
+
+/* ==========================================
+   MOSTRAR PROGRAMACIÓN COMPLETA POR MES
+   ========================================== */
+
 function showSchedule() {
 
   const container =
@@ -440,12 +473,12 @@ function showSchedule() {
 
     const serviceDate =
       new Date(year, month - 1, day);
-      
+
     const calculatedDay =
       serviceDate.toLocaleDateString("es-DO", {
         weekday: "long"
       });
-    
+
     months[key].services.push({
       row: row,
       day: day,
@@ -509,7 +542,7 @@ function showSchedule() {
 
       services.className =
         "cor-services";
-      
+
       monthData.services.sort((a, b) => {
 
         return a.day - b.day;
@@ -553,25 +586,25 @@ function showSchedule() {
         info.appendChild(date);
 
         if (service.theme) {
-        
+
           const theme =
             document.createElement("div");
-        
+
           theme.className =
             "cor-service-theme";
-        
+
           theme.textContent =
             service.theme;
-        
+
           card.appendChild(info);
           card.appendChild(theme);
-        
+
         } else {
-        
+
           card.appendChild(info);
-        
+
         }
-        
+
         const names =
           document.createElement("div");
 
@@ -616,9 +649,11 @@ function showSchedule() {
     });
 }
 
+
 /* ==========================================
-   MOSTRAR ASIGNACIONES
+   MOSTRAR PRÓXIMO SERVICIO
    ========================================== */
+
 function showNextService() {
 
   if (corData.length <= 1) {
@@ -769,6 +804,10 @@ function showNextService() {
 }
 
 
+/* ==========================================
+   MOSTRAR ASIGNACIONES DE UNA PERSONA
+   ========================================== */
+
 function showCorAssignments() {
 
   const name =
@@ -901,34 +940,63 @@ function showCorAssignments() {
         "cor-service-card";
 
 
-      card.innerHTML = `
+      // Fecha
 
-        <div class="cor-service-info">
+      const info =
+        document.createElement("div");
 
-          <span class="cor-date">
-            ${formattedDay} · ${formattedDate}
-          </span>
+      info.className =
+        "cor-service-info";
 
-        </div>
+      const dateSpan =
+        document.createElement("span");
 
-        ${
-          theme
-            ? `
-              <div class="cor-service-theme">
-                ${theme}
-              </div>
-            `
-            : ""
-        }
+      dateSpan.className =
+        "cor-date";
 
-        <div class="cor-names">
+      dateSpan.textContent =
+        formattedDay + " · " + formattedDate;
 
-          <span class="cor-name">
-            🎤 Asignado como voz
-          </span>
+      info.appendChild(dateSpan);
+      card.appendChild(info);
 
-        </div>
-      `;
+
+      // Tema (se usa textContent para evitar insertar HTML)
+
+      if (theme) {
+
+        const themeDiv =
+          document.createElement("div");
+
+        themeDiv.className =
+          "cor-service-theme";
+
+        themeDiv.textContent =
+          theme;
+
+        card.appendChild(themeDiv);
+      }
+
+
+      // Etiqueta de asignación
+
+      const names =
+        document.createElement("div");
+
+      names.className =
+        "cor-names";
+
+      const badge =
+        document.createElement("span");
+
+      badge.className =
+        "cor-name";
+
+      badge.textContent =
+        "🎤 Asignado como voz";
+
+      names.appendChild(badge);
+      card.appendChild(names);
 
 
       results.appendChild(card);
@@ -952,7 +1020,6 @@ function showCorAssignments() {
   }
 
 }
-
 
 
 /* ==========================================
@@ -1065,12 +1132,14 @@ function loadCORData() {
 
 }
 
+
 /* ==========================================
    INICIAR
    ========================================== */
 
 loadCORData();
 
-
-
 </script>
+
+</body>
+</html>
