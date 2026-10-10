@@ -1,8 +1,0 @@
-"# Adoracion-cor" 
-
-New features
-
-1. Estadisticas de canciones.
-2. Login inicio de sesiones.
-3. Listado de canciones
-4. My car
