@@ -1,0 +1,1076 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .cor-query {
+    margin: 25px 0;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .cor-query-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  #corNameSelect {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+  }
+
+  #corResults {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #dbe3ec;
+    margin-bottom: 30px;
+  }
+
+  .cor-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+  }
+
+  /* ENCABEZADO */
+
+  .cor-header {
+    background: linear-gradient(135deg, #0b1f3a, #123f6b);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .cor-header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+  }
+
+  .cor-header p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  /* PRÓXIMO SERVICIO */
+
+  
+  .cor-next {
+    background: #f4f8fc;
+    border-left: 5px solid #1769aa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+
+  .cor-next-label {
+    color: #1769aa;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .cor-next h2 {
+    margin: 0 0 6px;
+    font-size: 23px;
+  }
+
+  .cor-next p {
+    margin: 0 0 14px;
+    color: #667085;
+  }
+
+  .cor-voices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cor-voice {
+    background: white;
+    border: 1px solid #dce4ee;
+    border-radius: 30px;
+    padding: 8px 13px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* TÍTULOS */
+
+  .cor-section-title {
+    font-size: 24px;
+    margin: 30px 0 15px;
+    color: #0b1f3a;
+  }
+
+  /* MES */
+
+  .cor-month {
+    margin-bottom: 30px;
+  }
+
+  .cor-month-title {
+    background: #0b1f3a;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px 12px 0 0;
+    font-size: 19px;
+    font-weight: bold;
+  }
+
+  /* TARJETAS */
+
+  .cor-services {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cor-service-card {
+    background: white;
+    border: 1px solid #e1e7ef;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  #corResults .cor-service-card {
+    background: #f5f9ff;
+    border: 1px solid #d8e6f7;
+    border-left: 4px solid #2563eb;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+  }
+
+  #corResults .cor-service-card:last-child {
+    margin-bottom: 30px;
+  }
+
+  .cor-service-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .cor-service-theme {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    margin: 4px 0 10px;
+  }
+
+  .cor-date {
+    font-weight: bold;
+    color: #0b1f3a;
+  }
+
+  .cor-day {
+    color: #667085;
+    font-size: 14px;
+  }
+
+  .cor-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .cor-name {
+    display: inline-block;
+    background: #eef4fa;
+    color: #243b53;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* PIE */
+
+  .cor-footer {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    color: #697586;
+    font-size: 13px;
+    border-top: 1px solid #e1e7ef;
+  }
+
+  /* CELULARES */
+
+  @media (max-width: 600px) {
+
+    .cor-header {
+      padding: 24px 16px;
+      border-radius: 14px;
+    }
+
+    .cor-header h1 {
+      font-size: 23px;
+    }
+
+    .cor-header p {
+      font-size: 14px;
+    }
+
+    .cor-next {
+      padding: 17px;
+    }
+
+    .cor-next h2 {
+      font-size: 20px;
+    }
+
+    .cor-section-title {
+      font-size: 21px;
+    }
+
+    .cor-month-title {
+      font-size: 18px;
+      padding: 13px 15px;
+    }
+
+    .cor-service-card {
+      padding: 14px;
+    }
+
+    .cor-service-info {
+      display: block;
+    }
+
+    .cor-date {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .cor-day {
+      font-size: 13px;
+    }
+
+    .cor-name {
+      font-size: 13px;
+      padding: 7px 10px;
+    }
+  }
+</style>
+
+
+<div class="cor-container">
+
+  <!-- ENCABEZADO -->
+
+  <div class="cor-header">
+    <h1>Casa de Oración y Restauración</h1>
+    <p>Programación de voces</p>
+  </div>
+
+
+  <!-- PRÓXIMO SERVICIO -->
+<div class="cor-query">
+  <div class="cor-query-label">Consulta tu asignación</div>
+
+  <select id="corNameSelect">
+    <option value="">Selecciona tu nombre</option>
+  </select>
+</div>
+
+<div id="corResults"></div>
+
+  <div class="cor-next">
+
+    <div class="cor-next-label">
+      Próximo servicio
+    </div>
+
+    <h2 id="corNextDate">Cargando...</h2>
+
+    <p>Voces asignadas</p>
+
+    <div class="cor-voices" id="corNextVoices">
+      <span class="cor-voice">Cargando...</span>
+    </div>
+
+  </div>
+
+<div id="corSchedule"></div>
+
+  <!-- PIE -->
+
+  <div class="cor-footer">
+    Casa de Oración y Restauración · Programación de voces 2026
+  </div>
+
+</div>
+
+
+<script>
+
+const COR_API_URL =
+  "https://script.google.com/macros/s/AKfycbwOimH9tvfOr_-B3G3_1nTCuFQVrJg0TvtC7hPQUp_pOBIIVN5PNr6Y02qOP30vLhvIcA/exec";
+
+let corData = [];
+
+
+/* ==========================================
+   RECIBIR DATOS DESDE GOOGLE SHEETS
+   ========================================== */
+
+window.corHandleSheetData = function(data) {
+
+  corData = data;
+
+  showNextService();
+  showSchedule();
+
+  const select =
+    document.getElementById("corNameSelect");
+
+  const names = new Set();
+
+
+  // Recorrer las filas
+  // La fila 0 contiene los encabezados
+
+  for (let i = 1; i < data.length; i++) {
+
+    // Columnas Voz 1, Voz 2, Voz 3 y Voz 4
+    for (let j = 2; j < data[i].length; j++) {
+
+      const name =
+        (data[i][j] || "").trim();
+
+      if (name) {
+        names.add(name);
+      }
+    }
+  }
+
+
+  // Ordenar nombres alfabéticamente
+
+  [...names]
+    .sort((a, b) => a.localeCompare(b, "es"))
+    .forEach(name => {
+
+      const option =
+        document.createElement("option");
+
+      option.value = name;
+      option.textContent = name;
+
+      select.appendChild(option);
+    });
+
+
+  // Detectar cuando se selecciona un nombre
+
+  select.addEventListener(
+    "change",
+    showCorAssignments
+  );
+
+};
+
+function showSchedule() {
+
+  const container =
+    document.getElementById("corSchedule");
+
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = "";
+
+  const months = {};
+
+  for (let i = 1; i < corData.length; i++) {
+
+    const row = corData[i];
+
+    const dateText =
+      (row[0] || "").trim();
+
+    const serviceTheme =
+      (row[1] || "").trim();
+
+    if (!dateText) {
+      continue;
+    }
+
+    const parts =
+      dateText.split("/");
+
+    if (parts.length !== 3) {
+      continue;
+    }
+
+    const day =
+      parseInt(parts[0], 10);
+
+    const month =
+      parseInt(parts[1], 10);
+
+    const year =
+      parseInt(parts[2], 10);
+
+    const key =
+      year + "-" +
+      String(month).padStart(2, "0");
+
+    if (!months[key]) {
+      months[key] = {
+        month: month,
+        year: year,
+        services: []
+      };
+    }
+
+    const serviceDate =
+      new Date(year, month - 1, day);
+      
+    const calculatedDay =
+      serviceDate.toLocaleDateString("es-DO", {
+        weekday: "long"
+      });
+    
+    months[key].services.push({
+      row: row,
+      day: day,
+      dayText: calculatedDay,
+      theme: serviceTheme
+    });
+  }
+
+  const monthNames = [
+    "",
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre"
+  ];
+
+  Object.keys(months)
+    .sort()
+    .forEach(key => {
+
+      const monthData =
+        months[key];
+
+      const sectionTitle =
+        document.createElement("div");
+
+      sectionTitle.className =
+        "cor-section-title";
+
+      sectionTitle.textContent =
+        "Programación de " +
+        monthNames[monthData.month].toLowerCase();
+
+      const monthContainer =
+        document.createElement("div");
+
+      monthContainer.className =
+        "cor-month";
+
+      const monthTitle =
+        document.createElement("div");
+
+      monthTitle.className =
+        "cor-month-title";
+
+      monthTitle.textContent =
+        monthNames[monthData.month] +
+        " " +
+        monthData.year;
+
+      const services =
+        document.createElement("div");
+
+      services.className =
+        "cor-services";
+      
+      monthData.services.sort((a, b) => {
+
+        return a.day - b.day;
+
+      });
+
+      monthData.services.forEach(service => {
+
+        const row =
+          service.row;
+
+        const card =
+          document.createElement("div");
+
+        card.className =
+          "cor-service-card";
+
+        const info =
+          document.createElement("div");
+
+        info.className =
+          "cor-service-info";
+
+        const date =
+          document.createElement("span");
+
+        date.className =
+          "cor-date";
+
+        const formattedDay =
+          service.dayText.charAt(0).toUpperCase() +
+          service.dayText.slice(1);
+
+        date.textContent =
+          formattedDay +
+          " · " +
+          service.day +
+          " de " +
+          monthNames[monthData.month].toLowerCase();
+
+        info.appendChild(date);
+
+        if (service.theme) {
+        
+          const theme =
+            document.createElement("div");
+        
+          theme.className =
+            "cor-service-theme";
+        
+          theme.textContent =
+            service.theme;
+        
+          card.appendChild(info);
+          card.appendChild(theme);
+        
+        } else {
+        
+          card.appendChild(info);
+        
+        }
+        
+        const names =
+          document.createElement("div");
+
+        names.className =
+          "cor-names";
+
+        for (
+          let j = 2;
+          j < row.length;
+          j++
+        ) {
+
+          const voice =
+            (row[j] || "").trim();
+
+          if (!voice) {
+            continue;
+          }
+
+          const name =
+            document.createElement("span");
+
+          name.className =
+            "cor-name";
+
+          name.textContent =
+            voice;
+
+          names.appendChild(name);
+        }
+
+        card.appendChild(names);
+
+        services.appendChild(card);
+      });
+
+      monthContainer.appendChild(monthTitle);
+      monthContainer.appendChild(services);
+
+      container.appendChild(sectionTitle);
+      container.appendChild(monthContainer);
+    });
+}
+
+/* ==========================================
+   MOSTRAR ASIGNACIONES
+   ========================================== */
+function showNextService() {
+
+  if (corData.length <= 1) {
+    return;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  let nextRow = null;
+
+
+  // Buscar el próximo servicio
+
+  for (let i = 1; i < corData.length; i++) {
+
+    const row = corData[i];
+    const dateText = (row[0] || "").trim();
+
+    if (!dateText) {
+      continue;
+    }
+
+
+    // Formato del Sheet:
+    // D/M/YYYY
+    // Ejemplo: 3/10/2026
+
+    const parts = dateText.split("/");
+
+    if (parts.length !== 3) {
+      continue;
+    }
+
+
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1;
+    const year = parseInt(parts[2], 10);
+
+
+    const serviceDate =
+      new Date(year, month, day);
+
+    serviceDate.setHours(0, 0, 0, 0);
+
+
+    if (serviceDate >= today) {
+
+      nextRow = row;
+      break;
+
+    }
+  }
+
+
+  // No hay servicios próximos
+
+  if (!nextRow) {
+
+    document.getElementById("corNextDate")
+      .textContent = "No hay servicios próximos";
+
+    document.getElementById("corNextVoices")
+      .innerHTML = "";
+
+    return;
+  }
+
+
+  // Obtener fecha del próximo servicio
+
+  const dateText =
+    (nextRow[0] || "").trim();
+
+  const parts =
+    dateText.split("/");
+
+
+  const day =
+    parseInt(parts[0], 10);
+
+  const month =
+    parseInt(parts[1], 10) - 1;
+
+  const year =
+    parseInt(parts[2], 10);
+
+
+  const serviceDate =
+    new Date(year, month, day);
+
+
+  // Nombre del mes
+
+  const monthName =
+    serviceDate.toLocaleDateString("es-DO", {
+      month: "long"
+    });
+
+  const dayName =
+    serviceDate.toLocaleDateString("es-DO", {
+      weekday: "long"
+    });
+
+
+  // Mostrar fecha
+
+  document.getElementById("corNextDate")
+  .textContent =
+    dayName.charAt(0).toUpperCase() +
+    dayName.slice(1) +
+    " " +
+    day +
+    " de " +
+    monthName;
+
+
+  // Mostrar voces
+
+  const voicesContainer =
+    document.getElementById("corNextVoices");
+
+  voicesContainer.innerHTML = "";
+
+
+  for (let i = 2; i < nextRow.length; i++) {
+
+    const voice =
+      (nextRow[i] || "").trim();
+
+    if (!voice) {
+      continue;
+    }
+
+
+    const span =
+      document.createElement("span");
+
+    span.className =
+      "cor-voice";
+
+    span.textContent =
+      voice;
+
+    voicesContainer.appendChild(span);
+  }
+
+}
+
+
+function showCorAssignments() {
+
+  const name =
+    document.getElementById("corNameSelect").value;
+
+  const results =
+    document.getElementById("corResults");
+
+  results.innerHTML = "";
+
+
+  // Si no se ha seleccionado ningún nombre
+
+  if (!name) {
+    return;
+  }
+
+
+  // Título
+
+  const title =
+    document.createElement("h3");
+
+  title.textContent =
+    "Asignaciones de " + name;
+
+  results.appendChild(title);
+
+
+  let count = 0;
+
+
+  // Revisar todas las filas del Sheet
+
+  for (let i = 1; i < corData.length; i++) {
+
+    const row = corData[i];
+
+    const dateText =
+      (row[0] || "").trim();
+
+    const theme =
+      (row[1] || "").trim();
+
+
+    // Validar fecha
+
+    const parts =
+      dateText.split("/");
+
+    if (parts.length !== 3) {
+      continue;
+    }
+
+
+    const dayNumber =
+      parseInt(parts[0], 10);
+
+    const monthNumber =
+      parseInt(parts[1], 10) - 1;
+
+    const yearNumber =
+      parseInt(parts[2], 10);
+
+
+    const serviceDate =
+      new Date(
+        yearNumber,
+        monthNumber,
+        dayNumber
+      );
+
+
+    // Calcular día de la semana
+
+    const dayName =
+      serviceDate.toLocaleDateString("es-DO", {
+        weekday: "long"
+      });
+
+
+    // Nombre del mes
+
+    const monthName =
+      serviceDate.toLocaleDateString("es-DO", {
+        month: "long"
+      });
+
+
+    const formattedDay =
+      dayName.charAt(0).toUpperCase() +
+      dayName.slice(1);
+
+
+    const formattedDate =
+      dayNumber +
+      " de " +
+      monthName;
+
+
+    let assigned = false;
+
+
+    // Revisar las columnas de voces
+
+    for (
+      let j = 2;
+      j < row.length;
+      j++
+    ) {
+
+      if (
+        (row[j] || "").trim() === name
+      ) {
+
+        assigned = true;
+        break;
+      }
+    }
+
+
+    // Si la persona está asignada
+
+    if (assigned) {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "cor-service-card";
+
+
+      card.innerHTML = `
+
+        <div class="cor-service-info">
+
+          <span class="cor-date">
+            ${formattedDay} · ${formattedDate}
+          </span>
+
+        </div>
+
+        ${
+          theme
+            ? `
+              <div class="cor-service-theme">
+                ${theme}
+              </div>
+            `
+            : ""
+        }
+
+        <div class="cor-names">
+
+          <span class="cor-name">
+            🎤 Asignado como voz
+          </span>
+
+        </div>
+      `;
+
+
+      results.appendChild(card);
+
+      count++;
+    }
+  }
+
+
+  // Si no tiene asignaciones
+
+  if (count === 0) {
+
+    const message =
+      document.createElement("p");
+
+    message.textContent =
+      "No tienes asignaciones registradas.";
+
+    results.appendChild(message);
+  }
+
+}
+
+
+
+/* ==========================================
+   SOLICITAR DATOS AL WEB APP
+   ========================================== */
+
+function loadCORData() {
+
+  const maxAttempts = 2;
+  const timeoutMs = 5000;
+
+  let attempt = 0;
+  let completed = false;
+
+
+  function tryLoad() {
+
+    attempt++;
+
+
+    const script =
+      document.createElement("script");
+
+
+    let timeoutId;
+
+
+    const finishAttempt = function(success) {
+
+      if (completed) {
+        return;
+      }
+
+
+      clearTimeout(timeoutId);
+
+
+      if (success) {
+
+        completed = true;
+
+        return;
+      }
+
+
+      // Si todavía quedan intentos,
+      // volver a solicitar los datos.
+
+      if (attempt < maxAttempts) {
+
+        script.remove();
+
+        tryLoad();
+
+        return;
+      }
+
+
+      // Se agotaron los intentos.
+
+      completed = true;
+
+      document.getElementById(
+        "corResults"
+      ).innerHTML =
+        "<p>No se pudieron cargar los datos.</p>";
+
+    };
+
+
+    script.src =
+      COR_API_URL +
+      "?callback=corHandleSheetData";
+
+
+    script.onload = function() {
+
+      finishAttempt(true);
+
+    };
+
+
+    script.onerror = function() {
+
+      finishAttempt(false);
+
+    };
+
+
+    // Timeout de 5 segundos
+
+    timeoutId = setTimeout(
+      function() {
+
+        finishAttempt(false);
+
+      },
+      timeoutMs
+    );
+
+
+    document.body.appendChild(script);
+
+  }
+
+
+  // Primer intento
+
+  tryLoad();
+
+}
+
+/* ==========================================
+   INICIAR
+   ========================================== */
+
+loadCORData();
+
+
+
+</script>
